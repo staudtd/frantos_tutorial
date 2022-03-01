@@ -1,0 +1,39 @@
+{# templates/index.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bestellung {{ order.orderId }}</title>
+</head>
+<body>
+<h1>Bestellung {{ order.orderId }}</h1>
+
+<ul>
+    <li>Kundennummer: {{ customer.customerId }}</li>
+    <li>Vorname: {{ customer.firstname }}</li>
+    <li>Nachname: {{ customer.lastname }}</li>
+    <li>Strasse: {{ customer.street }}</li>
+    <li>Postleitzahl: {{ customer.postcode }}</li>
+    <li>Ort: {{ customer.city }}</li>
+    <li>Email: {{ customer.email }}</li>
+</ul>
+
+<p>Bestellnummer: {{ order.orderId }}</p>
+
+<table>
+    <tr>
+        <th>Artikelnummer</th>
+        <th>Name</th>
+        <th>Anzahl</th>
+        <th>Preis</th>
+    </tr>
+    {% for item in order.orderItems %}
+        <tr>
+            <td>{{ item.articlenumber }}</td>
+            <td>{{ item.articlename }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{{ item.price }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

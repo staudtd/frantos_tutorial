@@ -1,0 +1,4 @@
+customernumber,order_id,articlenumber,articlename,amount,price
+1338,1,11042349234,INBUS DIN 912 6Kt 8.8 M 6x35,5,0.2
+1338,1,23583240857,INBUS DIN 912 6Kt 8.8 M 8x30,10,0.18
+1338,2,52363463456,INBUS DIN 912 6Kt 8.8 M 6x45,10,0.14

@@ -1,0 +1,52 @@
+{# templates/index.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+</head>
+<body>
+    <h1>Frantos Tutorial</h1>
+
+    <h2>Kunden</h2>
+
+    {% for customer in customers %}
+        <ul>
+            <li>Kundennummer: {{ customer.customerId }}</li>
+            <li>Vorname: {{ customer.firstname }}</li>
+            <li>Nachname: {{ customer.lastname }}</li>
+            <li>Strasse: {{ customer.street }}</li>
+            <li>Postleitzahl: {{ customer.postcode }}</li>
+            <li>Ort: {{ customer.city }}</li>
+            <li>Email: {{ customer.email }}</li>
+        </ul>
+
+        <h3>Bestellungen</h3>
+
+        {% for order in customer.orders %}
+            <p>Bestellnummer: {{ order.orderId }}</p>
+
+            <table>
+                <tr>
+                    <th>Artikelnummer</th>
+                    <th>Name</th>
+                    <th>Anzahl</th>
+                    <th>Preis</th>
+                </tr>
+                {% for item in order.orderItems %}
+                    <tr>
+                        <td>{{ item.articlenumber }}</td>
+                        <td>{{ item.articlename }}</td>
+                        <td>{{ item.amount }}</td>
+                        <td>{{ item.price }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <a href="{{ url('download', {order: order.id}) }}" target="_blank">Download PDF</a>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>
