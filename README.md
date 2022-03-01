@@ -11,9 +11,9 @@ php ./bin/console doctrine:database:create
 php ./bin/console doctrine:migrations:migrate
 ```
 
-ausgeführt werden. Danach können der Testkunde und die -bestellungen generiert werden.
+ausgeführt werden. Danach können der Testkunde und die -bestellungen generiert werden. Der Befehl um die Orders zu importieren nimmt 2 Parameter: den Pfad zum Import CSV und dessen Dateinamen.
 
 ```
 php ./bin/console install:customer
-php ./bin/console install:orders
+php ./bin/console install:orders {project_root} orders.csv
 ```
